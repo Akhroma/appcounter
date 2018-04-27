@@ -56,23 +56,20 @@ $(document)
 </head>
 
 
-
-
-
 <div class="ui middle aligned center aligned grid">
     <div class="column" style="transform: translate(0,-50%); position:absolute; top:50%">
-      <h2 class="ui blue image header">
+      <h2 class="ui green image header">
         <!-- <img src="assets/images/logo.png" class="image"> -->
         <div class="content">
           Logar no painel
         </div>
       </h2>
-      <form class="ui large form">
+      <form class="ui large form" [formGroup]="userForm" (ngSubmit)="doLogin()">
         <div class="ui stacked segment">
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="email" placeholder="Usuário">
+              <input type="text" name="username" placeholder="Usuário">
             </div>
           </div>
           <div class="field">
@@ -81,11 +78,14 @@ $(document)
               <input type="password" name="password" placeholder="Senha">
             </div>
           </div>
+
           
-          <div class="ui fluid large blue submit button">Logar</div>
+          <div class="ui fluid large green submit button" [routerLink]="['']">Logar</div>
             <br>
-          <div class="ui fluid large blue submit button">Cadastrar</div>
+        
+          <div class="ui fluid large green submit button" [routerLink]="['/cadastrar']">Cadastrar</div>
         </div>
+        
   
         <div class="ui error message"></div>
   

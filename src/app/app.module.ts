@@ -5,10 +5,15 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { RoutesModule } from './routes/routes.module'
+import { routes } from './routes/routes.module'
 import { HttpModule } from '@angular/http'
 import { FormsModule } from '@angular/forms'
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { LoginserviceService } from './loginservice.service'
+import { ServicesService } from './services.service'
+
+
 
 
 
@@ -16,18 +21,20 @@ import { RouterModule, Routes } from '@angular/router';
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastrarComponent   
+    CadastrarComponent,
+    HeaderComponent   
    
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RoutesModule,
     HttpModule,
+    RouterModule.forRoot(routes)
    
   ],
-  providers: [],
+  providers: [LoginserviceService,
+              ServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
