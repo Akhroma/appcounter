@@ -64,23 +64,23 @@ $(document)
           Logar no painel
         </div>
       </h2>
-      <form class="ui large form" [formGroup]="userForm" (ngSubmit)="doLogin()">
+      <form class="ui large form" #loginForm="ngForm" (ngSubmit)="validateLogin()">
         <div class="ui stacked segment">
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="username" placeholder="Usuário">
+              <input type="text" name="Username" [(ngModel)] = "user.username" placeholder="Usuário" required id="inputUser" class="form-control">
             </div>
           </div>
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="password" name="password" placeholder="Senha">
+              <input type="password" name="Userpass" [(ngModel)] = "user.pass" placeholder="Senha" required id="inputPassword" class="form-control">
             </div>
           </div>
 
           
-          <div class="ui fluid large green submit button" [routerLink]="['']">Logar</div>
+          <div class="ui fluid large green submit button" [routerLink]="['']" (click)="validateLogin();">Logar</div>
             <br>
         
           <div class="ui fluid large green submit button" [routerLink]="['/cadastrar']">Cadastrar</div>

@@ -7,11 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { routes } from './routes/routes.module'
 import { HttpModule } from '@angular/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, FormBuilder, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { LoginserviceService } from './loginservice.service'
 import { ServicesService } from './services.service'
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { CadastroService } from './cadastro.service';
+import { UserComponent } from './user/user.component';
+
 
 
 
@@ -20,21 +24,33 @@ import { ServicesService } from './services.service'
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     CadastrarComponent,
-    HeaderComponent   
-   
+    HeaderComponent,
+    LoginComponent,
+    UserComponent,
+
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
     HttpModule,
-    RouterModule.forRoot(routes)
-   
+    HttpClientModule,
+
+
   ],
-  providers: [LoginserviceService,
-              ServicesService],
+  providers: [
+    LoginserviceService,
+    ServicesService,
+    CadastroService,
+
+
+
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
